@@ -32,8 +32,8 @@ public class AdminWhistleBlowingController {
     @Inject
     private WhistleBlowingFormPopulator whistleBlowingFormPopulator;
 
-    @RequestMapping(name="allWhistleBlowing", method = RequestMethod.GET)
     @AdminAuthorization
+    @RequestMapping(value="allWhistleBlowing", method = RequestMethod.GET)
     @ApiResponses({
             @ApiResponse(code = 200, response = List.class, message = "query all complaints")
     })
@@ -44,7 +44,7 @@ public class AdminWhistleBlowingController {
         return new ResponseEntity<>(whistleBlowingFormList,HttpStatus.OK);
     }
 
-    @RequestMapping(name="closeWhistleBlowing/{complaintId}", method = RequestMethod.PUT)
+    @RequestMapping(value="closeWhistleBlowing/{complaintId}", method = RequestMethod.PUT)
     @ApiResponses({
             @ApiResponse(code = 200, response = WhistleBlowingForm.class, message = "close a complaint")
     })
